@@ -25,11 +25,11 @@ def excute_deploy():
             run('git reset --hard')
             run('git pull origin master')
 
-            run('%s manage.py makemigrations' % python_path)
-            run('%s manage.py migrate' % python_path)
+            # run('%s manage.py makemigrations' % python_path)
+            # run('%s manage.py migrate' % python_path)
 
             # run('supervisord -c supervisord.conf')
             # run('supervisorctl -c supervisord.conf reload')
             # 重新启动项目
-            run('service nginx restart')
-            run('uwsgi --ini uwsgi.ini')
+            # run('service nginx restart')
+            # run('uwsgi --ini uwsgi.ini')

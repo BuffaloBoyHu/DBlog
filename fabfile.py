@@ -20,7 +20,7 @@ def excute_deploy():
 
     with prefix('source /root/workspace/blogenv/bin/activate'):
         with cd(code_cdir):
-            run('rm *.pyc')  # 删除已经生成的编译文件
+            # run('rm *.pyc')  # 删除已经生成的编译文件
             run('%s install -r requirements.txt' % pip_path)
             run('git reset --hard')
             run('git pull origin master')
@@ -31,5 +31,5 @@ def excute_deploy():
             # run('supervisord -c supervisord.conf')
             # run('supervisorctl -c supervisord.conf reload')
             # 重新启动项目
-            # run('service nginx restart')
-            # run('uwsgi --ini uwsgi.ini')
+            run('service nginx restart')
+            run('uwsgi --ini uwsgi.ini')

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import url
 
-urlpatterns = [
+from api.views import *
 
+urlpatterns = [
+    url(r'^S', home_view),
 ]

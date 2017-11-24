@@ -123,3 +123,100 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGS_BASE_DIR = os.path.join(BASE_DIR, 'log')
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'formatters': {
+        'verbose': {
+            'format': '%(asctime)s %(levelname)s %(module)s.%(funcName)s Line:%(lineno)d  %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+        'simpler': {
+            'format': '%(message)s'
+        }
+    },
+
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler'
+        },
+
+        'default_err': {
+            'level': 'ERROR',
+            'class': 'logging.handlers.WatchedFileHandler',
+            'filename': os.path.join(LOGS_BASE_DIR, 'error_logger.log'),
+            'formatter': 'verbose',
+        },
+
+        'exception_logger': {
+            'level': 'INFO',
+            'class': 'logging.handlers.WatchedFileHandler',
+            'filename': os.path.join(LOGS_BASE_DIR, 'exception_logger.log'),
+            'formatter': 'verbose',
+        },
+
+        'elapsed_logger': {
+            'level': 'INFO',
+            'class': 'logging.handlers.WatchedFileHandler',
+            'filename': os.path.join(LOGS_BASE_DIR, 'elapsed_logger.log'),
+            'formatter': 'verbose',
+        },
+
+        'info_logger': {
+            'level': 'INFO',
+            'class': 'logging.handlers.WatchedFileHandler',
+            'filename': os.path.join(LOGS_BASE_DIR, 'info_logger.log'),
+            'formatter': 'verbose',
+        },
+        'cron_logger': {
+            'level': 'INFO',
+            'class': 'logging.handlers.WatchedFileHandler',
+            'filename': os.path.join(LOGS_BASE_DIR, 'cron_logger.log'),
+            'formatter': 'verbose',
+        },
+    },
+
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'propagate': False,
+            'level': 'INFO',
+        },
+        'django.request': {
+            'handlers': ['default_err', 'console'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'exception_logger': {
+            'handlers': ['exception_logger'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'elapsed_logger': {
+            'handlers': ['elapsed_logger'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'info_logger': {
+            'handlers': ['info_logger'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'django_crontab.crontab': {
+            'handlers': ['cron_logger'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    }
+}

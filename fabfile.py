@@ -31,6 +31,6 @@ def excute_deploy():
             # run('supervisord -c supervisord.conf')
             # run('supervisorctl -c supervisord.conf reload')
             # 重新启动项目
-            run('service nginx restart')
-            run('uwsgi --ini uwsgi.ini')
-            # run('uwsgi --reload blog.pid')
+            # run('service nginx restart')
+            # run('uwsgi --ini uwsgi.ini')
+            run('uwsgi --reload blog.pid')

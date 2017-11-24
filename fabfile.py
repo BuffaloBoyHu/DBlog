@@ -13,8 +13,7 @@ def excute_deploy():
     项目部署
     :return:
     """
-    print
-    green("=====================")
+    print green("=====================")
     code_cdir = '/root/workspace/DBlog'
     python_path = '/root/workspace/blogenv/bin/python'
     pip_path = '/root/workspace/blogenv/bin/pip'

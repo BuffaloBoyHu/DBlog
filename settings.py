@@ -179,12 +179,6 @@ LOGGING = {
             'filename': os.path.join(LOGS_BASE_DIR, 'info_logger.log'),
             'formatter': 'verbose',
         },
-        'cron_logger': {
-            'level': 'INFO',
-            'class': 'logging.handlers.WatchedFileHandler',
-            'filename': os.path.join(LOGS_BASE_DIR, 'cron_logger.log'),
-            'formatter': 'verbose',
-        },
     },
 
     'loggers': {
@@ -210,11 +204,6 @@ LOGGING = {
         },
         'info_logger': {
             'handlers': ['info_logger'],
-            'level': 'INFO',
-            'propagate': False,
-        },
-        'django_crontab.crontab': {
-            'handlers': ['cron_logger'],
             'level': 'INFO',
             'propagate': False,
         },

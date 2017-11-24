@@ -29,9 +29,7 @@ def excute_deploy():
             run('%s manage.py migrate' % python_path)
 
             # run('supervisord -c supervisord.conf')
-            run('supervisorctl -c supervisord.conf reload')
+            # run('supervisorctl -c supervisord.conf reload')
             # 重新启动项目
             # run('service nginx restart')
             # run('uwsgi --ini uwsgi.ini')
-
-

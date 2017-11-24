@@ -13,7 +13,8 @@ def excute_deploy():
     项目部署
     :return:
     """
-    print green("=====================")
+    print
+    green("=====================")
     code_cdir = '/root/workspace/DBlog'
     python_path = '/root/workspace/blogenv/bin/python'
     pip_path = '/root/workspace/blogenv/bin/pip'
@@ -33,4 +34,5 @@ def excute_deploy():
             # 重新启动项目
             # run('service nginx restart')
             # run('uwsgi --ini uwsgi.ini')
-            run('uwsgi --reload blog.pid')
+            # run('uwsgi --reload blog.pid')
+            run('sh control/restart.sh')

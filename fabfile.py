@@ -20,7 +20,7 @@ def excute_deploy():
 
     with prefix('source /root/workspace/blogenv/bin/activate'):
         with cd(code_cdir):
-            # run('rm *.pyc')  # 删除已经生成的编译文件
+            run('rm *.pyc')  # 删除已经生成的编译文件
             # run('%s install -r requirements.txt' % pip_path)
             run('git reset --hard')
             run('git pull origin master')

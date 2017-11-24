@@ -8,3 +8,7 @@ from django.shortcuts import HttpResponse
 
 def home_view(request):
     return HttpResponse('hellow this is blog')
+
+
+def home_h_view(request):
+    return HttpResponse('hellow this isasdasdsdasdasd blog')

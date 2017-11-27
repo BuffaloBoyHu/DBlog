@@ -12,7 +12,7 @@ from api.models import Author, Blog, Tag
 
 
 def home_view(request):
-    return HttpResponse('hellow this is blog')
+    return HttpResponse('base.html')
 
 
 def blog_filer_view(request, id):
@@ -41,4 +41,3 @@ def blog_add_view(request):
             return HttpResponseRedirect('/sblog/blog/%s' % id)
     else:
         form = BlogForm()
-

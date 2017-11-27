@@ -42,5 +42,3 @@ def blog_add_view(request):
     else:
         form = BlogForm()
 
-
-def

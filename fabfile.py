@@ -16,18 +16,18 @@ def excute_deploy():
     print
     green("=====================")
     code_cdir = '/root/workspace/DBlog'
-    python_path = '/root/workspace/blogenv/bin/python'
-    pip_path = '/root/workspace/blogenv/bin/pip'
+    python_path = '/root/workspace/env/bin/python'
+    pip_path = '/root/workspace/env/bin/pip'
 
-    with prefix('source /root/workspace/blogenv/bin/activate'):
+    with prefix('source /root/workspace/env/bin/activate'):
         with cd(code_cdir):
-            run('rm *.pyc')  # 删除已经生成的编译文件
-            # run('%s install -r requirements.txt' % pip_path)
+            # run('rm *.pyc')  # 删除已经生成的编译文件
+            run('%s install -r requirements.txt' % pip_path)
             run('git reset --hard')
             run('git pull origin master')
 
-            # run('%s manage.py makemigrations' % python_path)
-            # run('%s manage.py migrate' % python_path)
+            run('%s manage.py makemigrations' % python_path)
+            run('%s manage.py migrate' % python_path)
 
             # run('supervisord -c supervisord.conf')
             # run('supervisorctl -c supervisord.conf reload')

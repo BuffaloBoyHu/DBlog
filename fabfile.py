@@ -26,6 +26,8 @@ def excute_deploy():
             run('git reset --hard')
             run('git pull origin master')
 
+            run('%s manage.py collectstatic --noinput' % python_path)
+
             run('%s manage.py makemigrations' % python_path)
             run('%s manage.py migrate' % python_path)
 

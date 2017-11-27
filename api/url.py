@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^add/$', blog_add_view, 'addblog'),
     url(r'^show/(?P<id>\d+)/$', blog_show_view, 'detailblog'),
     url(r'^update/(?P<id>\d+)/$', blog_update_view, 'updateblog'),
+    url(r'^bloglist/$', blog_list_view, name='bloglist'),
 ]

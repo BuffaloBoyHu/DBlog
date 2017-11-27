@@ -113,3 +113,9 @@ def blog_update_view(request, id):
                               context_instance=RequestContext(request))
 
 
+def blog_list_view(request):
+    blogs = Blog.objects.order_by('-id')
+    tags = Tag.objects.all()
+    return render_to_response("blog_list.html",
+                              {"blogs": blogs, "tags": tags, },
+                              context_instance=RequestContext(request))

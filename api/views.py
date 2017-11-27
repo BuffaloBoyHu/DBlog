@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.http import HttpResponseRedirect
-from django.shortcuts import HttpResponse, render_to_response
+from django.shortcuts import HttpResponse, render_to_response, render
 
 # Create your views here.
 from django.template import RequestContext
@@ -12,7 +12,7 @@ from api.models import Author, Blog, Tag
 
 
 def home_view(request):
-    return HttpResponse('base.html')
+    return render_to_response('base.html')
 
 
 def blog_filer_view(request, id):

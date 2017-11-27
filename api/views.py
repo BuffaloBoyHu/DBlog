@@ -13,7 +13,7 @@ from api.models import Author, Blog, Tag
 
 
 def home_view(request):
-    return render_to_response('blog_base.html')
+    return render_to_response('blog_list.html')
 
 
 def blog_filer_view(request, id=None):
@@ -93,7 +93,7 @@ def blog_update_view(request, id):
             else:
                 blog = Blog(caption=blog.caption, content=blog.content)
                 blog.save()
-            return HttpResponseRedirect('/sblog/blog/%s' % id)
+            return HttpResponseRedirect('/blog/show/%s' % id)
     else:
         try:
             blog = Blog.objects.get(id=id)

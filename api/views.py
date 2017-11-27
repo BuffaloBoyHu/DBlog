@@ -45,3 +45,6 @@ def blog_add_view(request):
             return HttpResponseRedirect('/sblog/blog/%s' % id)
     else:
         form = BlogForm()
+        tag = TagForm(initial={'tag_name': 'notags'})
+    return render_to_response('blog_add.html',
+                              {'form': form, 'tag': tag}, context_instance=RequestContext(request))

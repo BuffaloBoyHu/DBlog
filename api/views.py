@@ -12,11 +12,15 @@ from api.models import Author, Blog, Tag
 
 
 def home_view(request):
-    return render_to_response('base.html')
+    return render_to_response('blog_base.html')
 
 
-def blog_filer_view(request, id):
-    pass
+def blog_filer_view(request, id=None):
+    tags = Tag.objects.all()
+    tag = Tag.objects.get(id=id)
+    blogs = tag.blog_set.all()
+    return render_to_response("blog_filter.html",
+                              {"blogs": blogs, "tag": tag, "tags": tags})
 
 
 def blog_add_view(request):

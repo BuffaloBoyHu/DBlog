@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 from django.core.management import BaseCommand
 
 from api.models import Tag
@@ -10,4 +12,4 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         for i in range(10):
-            Tag.objects.create(name="index-%s" % i)
+            Tag.objects.create(name='name--%s' % i)

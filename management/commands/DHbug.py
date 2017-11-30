@@ -1,4 +1,4 @@
-from click import BaseCommand
+from django.core.management import BaseCommand
 
 from api.models import Tag
 

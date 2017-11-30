@@ -22,6 +22,8 @@ class Tag(models.Model):
         verbose_name = '标签'
 
     name = models.CharField(max_length=20, verbose_name='标签名')
+    sub_name = models.CharField(max_length=30, verbose_name='子标签', default='kkkk', blank=True, null=True)
+    level = models.IntegerField(verbose_name='等级', default=2, blank=True, null=True)
     created_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间", null=True)
     modified_time = models.DateTimeField(auto_now=True, verbose_name='修改时间', null=True)
 

@@ -11,7 +11,7 @@ class Author(models.Model):
         verbose_name = '作者'
 
     name = models.CharField(max_length=20, verbose_name="称呼")
-    email = models.EmailField(verbose_name='邮箱')
+    email = models.EmailField(verbose_name='邮箱', default="wwww@zhizi.com")
     descript = models.TextField(verbose_name='个人描述')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间", null=True)
     modified_time = models.DateTimeField(auto_now=True, verbose_name='修改时间', null=True)
